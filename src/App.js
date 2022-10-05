@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { logDOM } from "@testing-library/react";
+import Button from "./components/Button";
 
+const btnValues = [
+	["c", "%", "DEL", "/"],
+	["7", "8", "9", "*"],
+	["4", "5", "6", "-"],
+	["1", "2", "3", "+"],
+	["0", ".", "="],
+];
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='wrapper'>
+			<div className='screen'>
+				<input type='text' className='input' value='0' />
+			</div>
+			<div className='button_wrapper'>
+				{btnValues.flat().map((value, idx) => (
+					<Button
+						key={idx}
+						value={value}
+						onClick={() => {
+							console.log(value);
+						}}
+						className={value === "0" ? "spanMore" : ""}
+					/>
+				))}
+			</div>
+		</div>
+	);
 }
 
 export default App;
