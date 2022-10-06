@@ -1,4 +1,3 @@
-import { logDOM } from "@testing-library/react";
 import Button from "./components/Button";
 
 const btnValues = [
